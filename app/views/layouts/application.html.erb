@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DemoApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "super_navigation", "data-turbo-track": "reload" %>
+    
+    <!-- Font Awesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header style="background: #f8f9fa; padding: 1rem; border-bottom: 1px solid #dee2e6;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+        <h1 style="margin: 0; color: #333;">Demo App - SuperNavigation</h1>
+        <%= render_super_navigation(button_text: 'Menu Principal', button_icon: 'fas fa-bars') %>
+      </div>
+    </header>
+
+    <main style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+      <%= yield %>
+    </main>
+
+    <%= javascript_include_tag "super_navigation", "data-turbo-track": "reload" %>
+    <%= super_navigation_javascript_tag %>
+  </body>
+</html>
